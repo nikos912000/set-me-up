@@ -23,6 +23,17 @@ install_go() {
     fi
 }
 
+# Function to install Docker
+install_docker() {
+    echo "Checking if Docker has been installed..."
+    if ! brew list --cask docker &> /dev/null; then
+        echo "Installing Docker..."
+        brew install --cask docker
+    else
+        echo "Docker is already installed."
+    fi
+}
+
 # Function dispatcher
 run_function() {
     local function_name=$1
